@@ -13,42 +13,42 @@ class BinaryTest < Minitest::Test
   end
 
   def test_binary_10_is_decimal_2
-    skip
+    #skip
     assert_equal 2, Binary.new('10').to_decimal
   end
 
   def test_binary_11_is_decimal_3
-    skip
+    #skip
     assert_equal 3, Binary.new('11').to_decimal
   end
 
   def test_binary_100_is_decimal_4
-    skip
+    #skip
     assert_equal 4, Binary.new('100').to_decimal
   end
 
   def test_binary_1001_is_decimal_9
-    skip
+    #skip
     assert_equal 9, Binary.new('1001').to_decimal
   end
 
   def test_binary_11010_is_decimal_26
-    skip
+    #skip
     assert_equal 26, Binary.new('11010').to_decimal
   end
 
   def test_binary_10001101000_is_decimal_1128
-    skip
+    #skip
     assert_equal 1128, Binary.new('10001101000').to_decimal
   end
 
   def test_binary_ignores_leading_zeros
-    skip
+    #skip
     assert_equal 31, Binary.new('000011111').to_decimal
   end
 
   def test_invalid_binary_numbers_raise_an_error
-    skip
+    #skip
     %w(012 10nope nope10).each do |input|
       assert_raises ArgumentError do
         Binary.new(input)
@@ -65,7 +65,7 @@ class BinaryTest < Minitest::Test
   # If you're curious, read more about constants on RubyDoc:
   # http://ruby-doc.org/docs/ruby-doc-bundle/UsersGuide/rg/constants.html
   def test_bookkeeping
-    skip
+    #skip
     assert_equal 1, Binary::VERSION
   end
 end
