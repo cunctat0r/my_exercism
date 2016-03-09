@@ -4,6 +4,7 @@ require 'minitest/autorun'
 require_relative 'accumulate'
 
 class ArrayTest < Minitest::Test
+
   def test_empty_accumulation
     assert_equal [], [].accumulate { |e| e * e }
   end
