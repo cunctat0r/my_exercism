@@ -2,20 +2,7 @@
 class BeerSong
   VERSION = 2
   def verse(num)
-    it = 'one'
-    i_bottles = (num - 1 == 1) ? 'bottle' : 'bottles'
-    w_bottles = (num == 1) ? 'bottle' : 'bottles'
-    was_bottles = num
-    case num
-    when 0
-      was_bottles = 'no more'
-      is_bottles = 99
-    when 1
-      it = 'it'
-      is_bottles = 'no more'
-    else
-      is_bottles = num - 1
-    end
+    it = (num == 1) ? 'it' : 'one'
 
     semi_line2 =
       if num == 0
@@ -24,8 +11,8 @@ class BeerSong
         "Take #{it} down and pass it around"
       end
 
-    line1 = "#{was_bottles} #{w_bottles} of beer on the wall, #{was_bottles} #{w_bottles} of beer.".capitalize
-    line2 = "#{semi_line2}, #{is_bottles} #{i_bottles} of beer on the wall."
+    line1 = "#{bottles(num).capitalize} of beer on the wall, #{bottles(num)} of beer."
+    line2 = "#{semi_line2}, #{bottles(num - 1)} of beer on the wall."
 
     "#{line1}\n#{line2}\n"
   end
@@ -40,5 +27,19 @@ class BeerSong
 
   def lyrics
     verses(99, 0)
+  end
+
+  private
+
+  def bottles(num)
+    if num == 0
+      'no more bottles'
+    elsif num == 1
+      "#{num} bottle"
+    elsif num == -1
+      '99 bottles'
+    else
+      "#{num} bottles"
+    end
   end
 end
