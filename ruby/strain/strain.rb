@@ -1,15 +1,10 @@
+#
 class Array
   def keep
-    return [] if self.empty?
-    arr = []
-    self.each { |item| arr << item if yield(item) }     
-    arr
+    select { |item| item if yield(item) }
   end
 
   def discard
-    return [] if self.empty?
-    arr = []
-    self.each { |item| arr << item unless yield(item) }
-    arr
+    select { |item| item unless yield(item) }
   end
 end
