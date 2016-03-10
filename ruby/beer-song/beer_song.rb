@@ -18,11 +18,7 @@ class BeerSong
   end
 
   def verses(verse1, verse2)
-    result = ''
-    verse1.downto(verse2) do |num|
-      result += "#{verse(num)}\n"
-    end
-    result.chomp!
+    verse1.downto(verse2).map { |num| verse(num) }.join("\n")
   end
 
   def lyrics
