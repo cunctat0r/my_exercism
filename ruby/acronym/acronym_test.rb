@@ -8,10 +8,11 @@ class AcronymTest < Minitest::Test
     {
       'Portable Network Graphics' => 'PNG',
       'Ruby on Rails' => 'ROR',
-      'HyperText Markup Language' => 'HTML',
+
       'First In, First Out' => 'FIFO',
       'PHP: Hypertext Preprocessor' => 'PHP',
-      'Complementary metal-oxide semiconductor' => 'CMOS'
+      'Complementary metal-oxide semiconductor' => 'CMOS',
+      'HyperText Markup Language' => 'HTML'
     }.freeze
 
   def test_acronyms
