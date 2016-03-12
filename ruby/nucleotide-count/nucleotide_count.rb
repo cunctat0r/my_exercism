@@ -11,9 +11,7 @@ class Nucleotide
 
   def count(nucleo)
     return 0 if @dna.empty?
-    res = 0
-    @dna.chars.each { |chr| res += 1 if chr == nucleo }
-    res
+    @dna.chars.count(nucleo)
   end
 
   def histogram
