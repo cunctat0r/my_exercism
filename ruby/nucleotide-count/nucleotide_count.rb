@@ -10,7 +10,6 @@ class Nucleotide
   end
 
   def count(nucleo)
-    return 0 if @dna.empty?
     @dna.chars.count(nucleo)
   end
 
