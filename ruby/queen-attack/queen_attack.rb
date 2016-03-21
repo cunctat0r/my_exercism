@@ -1,15 +1,10 @@
 #
 class Queens
   attr_reader :white, :black
-  def initialize(*options)
-    if options.empty?
-      @white = [0, 3]
-      @black = [7, 3]
-    else
-      raise ArgumentError if options[0][:white] == options[0][:black]
-      @white = options[0][:white]
-      @black = options[0][:black]
-    end
+  def initialize(white: [0, 3], black: [7, 3])
+    raise ArgumentError if white == black
+    @white = white
+    @black = black
   end
 
   def to_s
