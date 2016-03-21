@@ -61,23 +61,23 @@ class SayTest < Minitest::Test
   end
 
   def test_1_million_and_some_crumbs
-    skip
+    #skip
     assert_equal 'one million two', Say.new(1_000_002).in_english
   end
 
   def test_1_million_2_thousand_345
-    skip
+    #skip
     expected = 'one million two thousand three hundred forty-five'
     assert_equal expected, Say.new(1_002_345).in_english
   end
 
   def test_1_billion
-    skip
+    #skip
     assert_equal 'one billion', Say.new(10**9).in_english
   end
 
   def test_really_big_number
-    skip
+    #skip
     expected = 'nine hundred eighty-seven billion '
     expected << 'six hundred fifty-four million '
     expected << 'three hundred twenty-one thousand '
@@ -86,7 +86,7 @@ class SayTest < Minitest::Test
   end
 
   def test_really_big_number_with_teens
-    skip
+    #skip
     expected = 'nine hundred seventeen billion '
     expected << 'six hundred fourteen million '
     expected << 'three hundred eleven thousand '
@@ -95,7 +95,7 @@ class SayTest < Minitest::Test
   end
 
   def test_really_big_number_with_tens
-    skip
+    #skip
     expected = 'nine hundred eighty billion '
     expected << 'six hundred forty million '
     expected << 'three hundred twenty thousand '
@@ -104,7 +104,7 @@ class SayTest < Minitest::Test
   end
 
   def test_really_big_number_with_hundreds
-    skip
+    #skip
     expected = 'nine hundred billion '
     expected << 'six hundred million '
     expected << 'three hundred thousand '
@@ -113,14 +113,14 @@ class SayTest < Minitest::Test
   end
 
   def test_lower_bound
-    skip
+    #skip
     assert_raises ArgumentError do
       Say.new(-1).in_english
     end
   end
 
   def test_upper_bound
-    skip
+    #skip
     assert_raises ArgumentError do
       Say.new(1_000_000_000_000).in_english
     end
