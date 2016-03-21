@@ -26,7 +26,7 @@ class Meetup
       last: -1
     }
     if selector == :teenth
-      arr.select { |item| item.day > 10 && item.day < 20 }.last
+      arr.select { |item| item.day > 12 && item.day < 20 }.last
     else
       arr[sel_hash[selector]]
     end
