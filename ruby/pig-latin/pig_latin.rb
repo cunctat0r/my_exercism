@@ -6,13 +6,13 @@ class PigLatin
 
   def self.to_pig(text)
     if text =~ /^([aoeui]|yt|xr)\w*/
-      text + 'ay'
+      text
     elsif text =~ /^(sch|thr|.qu)\w*/
-      text[3, text.length] + text[0, 3] + 'ay'
+      text[3, text.length] + text[0, 3]
     elsif text =~ /^(ch|th|qu)\w*/
-      text[2, text.length] + text[0, 2] + 'ay'
+      text[2, text.length] + text[0, 2]
     else
-      text[1, text.length] + text[0] + 'ay'
-    end
+      text[1, text.length] + text[0]
+    end + 'ay'
   end
 end
