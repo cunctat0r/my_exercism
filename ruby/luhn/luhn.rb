@@ -5,17 +5,20 @@ class Luhn
   end
 
   def addends
-    arr = []
-    @init.chars.reverse.map(&:to_i).each_with_index do |item, index|
-      arr <<
-        if index.even?
+    @init
+      .chars
+      .map(&:to_i)
+      .reverse
+      .collect
+      .with_index(1) do |item, index|
+        if index.odd?
           item
         else
-          tmp = 2 * item
-          tmp >= 10 ? tmp - 9 : tmp
+          item *= 2
+          item -= 9 if item > 10
         end
-    end
-    arr.reverse!
+        item
+      end.reverse
   end
 
   def checksum
@@ -29,6 +32,6 @@ class Luhn
   def self.create(num)
     remainder = Luhn.new(num * 10).checksum % 10
     check_digit = (remainder == 0) ? remainder : 10 - remainder
-    "#{num}#{check_digit}".to_i
+    num * 10 + check_digit
   end
 end
