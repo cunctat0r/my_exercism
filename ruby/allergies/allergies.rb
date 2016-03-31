@@ -20,8 +20,6 @@ class Allergies
   end
 
   def list
-    ALLERGENS.each_with_object([]) do |(key, value), lst|
-      lst << key.to_s if value & @rank > 0
-    end
+    ALLERGENS.keys.map(&:to_s).select { |allergen| allergic_to?(allergen) }
   end
 end
