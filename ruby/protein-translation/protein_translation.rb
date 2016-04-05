@@ -13,12 +13,12 @@ class Translation
   end
 
   def self.of_rna(sequence)
-    proteins = []
-    sequence.chars.each_slice(3).map(&:join).each do |slice|
-      break if of_codon(slice) == 'STOP'
-      proteins << of_codon(slice)
-    end
-    proteins
+    sequence
+      .chars
+      .each_slice(3)
+      .map(&:join)
+      .each_with_object([]) { |slice, proteins| proteins << of_codon(slice) }
+      .take_while { |protein| protein != 'STOP' }
   end
 end
 
