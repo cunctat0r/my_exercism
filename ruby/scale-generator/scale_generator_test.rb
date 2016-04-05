@@ -20,7 +20,7 @@ class ScaleGeneratorTest < Minitest::Test
   end
 
   def test_another_chromatic_scale
-    skip
+    #skip
     chromatic = Scale.new('F', :chromatic)
     expected = %w(F Gb G Ab A Bb B C Db D Eb E)
     actual = chromatic.pitches
@@ -100,7 +100,7 @@ class ScaleGeneratorTest < Minitest::Test
   end
 
   def test_locrian_mode
-    skip
+    #skip
     locrian = Scale.new('g', :locrian, 'mMMmMMM')
     expected = %w(G Ab Bb C Db Eb F)
     actual = locrian.pitches
@@ -108,7 +108,7 @@ class ScaleGeneratorTest < Minitest::Test
   end
 
   def test_harmonic_minor
-    skip
+    #skip
     harmonic_minor = Scale.new('d', 'harmonic_minor', 'MmMMmAm')
     expected = %w(D E F G A Bb Db)
     actual = harmonic_minor.pitches
