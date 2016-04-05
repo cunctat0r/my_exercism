@@ -16,7 +16,7 @@ class CustomSetTest < Minitest::Test
   end
 
   def test_delete
-    skip
+    #skip
     assert_equal CustomSet.new([1, 3]), CustomSet.new([3, 2, 1]).delete(2)
     assert_equal CustomSet.new([1, 2, 3]), CustomSet.new([3, 2, 1]).delete(4)
     assert_equal CustomSet.new([1, 2, 3]), CustomSet.new([3, 2, 1]).delete(2.0)
@@ -24,7 +24,7 @@ class CustomSetTest < Minitest::Test
   end
 
   def test_difference
-    skip
+    #skip
     assert_equal CustomSet.new([1, 3]),
                  CustomSet.new([1, 2, 3]).difference(CustomSet.new([2, 4]))
 
@@ -33,7 +33,7 @@ class CustomSetTest < Minitest::Test
   end
 
   def test_disjoint?
-    skip
+    #skip
     assert CustomSet.new([1, 2]).disjoint?(CustomSet.new([3, 4]))
     refute CustomSet.new([1, 2]).disjoint?(CustomSet.new([2, 3]))
     assert CustomSet.new([1.0, 2.0]).disjoint?(CustomSet.new([2, 3]))
@@ -41,14 +41,14 @@ class CustomSetTest < Minitest::Test
   end
 
   def test_empty
-    skip
+    #skip
     assert_equal CustomSet.new, CustomSet.new([1, 2]).empty
     assert_equal CustomSet.new, CustomSet.new.empty
   end
 
   # rubocop:disable Metrics/LineLength
   def test_intersection
-    skip
+    #skip
     assert_equal CustomSet.new([:a, :c]),
                  CustomSet.new([:a, :b, :c]).intersection(CustomSet.new([:a, :c, :d]))
 
@@ -57,7 +57,7 @@ class CustomSetTest < Minitest::Test
   end
 
   def test_member?
-    skip
+    #skip
     assert CustomSet.new([1, 2, 3]).member?(2)
     assert CustomSet.new(1..3).member?(2)
     refute CustomSet.new(1..3).member?(2.0)
@@ -65,7 +65,7 @@ class CustomSetTest < Minitest::Test
   end
 
   def test_put
-    skip
+    #skip
     assert_equal CustomSet.new([1, 2, 3, 4]),
                  CustomSet.new([1, 2, 4]).put(3)
 
@@ -77,14 +77,14 @@ class CustomSetTest < Minitest::Test
   end
 
   def test_size
-    skip
+    #skip
     assert_equal 0, CustomSet.new.size
     assert_equal 3, CustomSet.new([1, 2, 3]).size
     assert_equal 3, CustomSet.new([1, 2, 3, 2]).size
   end
 
   def test_subset?
-    skip
+    #skip
     assert CustomSet.new([1, 2, 3]).subset?(CustomSet.new([1, 2, 3]))
     assert CustomSet.new([4, 1, 2, 3]).subset?(CustomSet.new([1, 2, 3]))
     refute CustomSet.new([4, 1, 3]).subset?(CustomSet.new([1, 2, 3]))
@@ -94,14 +94,14 @@ class CustomSetTest < Minitest::Test
   end
 
   def test_to_a
-    skip
+    #skip
     assert_equal [], CustomSet.new.to_a.sort
     assert_equal [1, 2, 3], CustomSet.new([3, 1, 2]).to_a.sort
     assert_equal [1, 2, 3], CustomSet.new([3, 1, 2, 1]).to_a.sort
   end
 
   def test_union # rubocop:disable Metrics/MethodLength
-    skip
+    #skip
     assert_equal CustomSet.new([3, 2, 1]),
                  CustomSet.new([1, 3]).union(CustomSet.new([2]))
     assert_equal CustomSet.new([3.0, 3, 2, 1]),
