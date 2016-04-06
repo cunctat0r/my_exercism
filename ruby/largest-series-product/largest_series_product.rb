@@ -10,14 +10,11 @@ class Series
     raise ArgumentError if num_of_digits < 0
     raise ArgumentError if num_of_digits > @series.length
     raise ArgumentError unless @series =~ /^[0-9]+$/
-    (0..@series.length - num_of_digits)
+    @series
+      .chars
+      .each_cons(num_of_digits)
       .to_a
-      .each_with_object([]) do |num, arr|
-        arr << @series[num, num_of_digits]
-               .chars
-               .map(&:to_i)
-               .reduce(:*)
-      end
+      .map { |arr| arr.map(&:to_i).reduce(:*) }
       .sort
       .last
   end
