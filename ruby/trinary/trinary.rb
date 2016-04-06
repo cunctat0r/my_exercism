@@ -6,10 +6,8 @@ class Trinary
 
   def to_decimal
     return 0 unless @trinary =~ /^(0|1|2)+$/
-    result = 0
-    @trinary.reverse.each_char.with_index(0) do |chr, i|
-      result += chr.to_i * 3**i
+    @trinary.reverse.chars.each_with_index.inject(0) do |res, (chr, i)|
+      res + chr.to_i * 3**i
     end
-    result
   end
 end

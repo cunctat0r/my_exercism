@@ -1,3 +1,4 @@
+#
 class Phrase
   VERSION = 1
   def initialize(phrase)
@@ -5,13 +6,12 @@ class Phrase
   end
 
   def word_count
-    counts = Hash.new(0)
     words = @phrase.split(/[ ,.:!&@$%^\n]/)
-    words.each do |word|
-      word.gsub!(/^\'/i, "")
-      word.gsub!(/\'$/i, "")
-      counts[word.to_s.downcase] += 1 unless word.to_s.downcase == ""
+    words.each_with_object(Hash.new(0)) do |word, counts|
+      word.gsub!(/^\'/i, '')
+      word.gsub!(/\'$/i, '')
+      word.to_s.downcase!
+      counts[word] += 1 unless word == ''
     end
-    counts
   end
 end
