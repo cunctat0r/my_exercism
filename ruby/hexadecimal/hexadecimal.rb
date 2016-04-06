@@ -13,11 +13,13 @@ class Hexadecimal
 
   def to_decimal
     return 0 unless @hex[/^[0-9a-f]+$/]
-    res = 0
-    @hex.reverse.chars.each_with_index do |chr, i|
-      res += RULES[chr] * 16**i if RULES[chr]
-      res += chr.to_i * 16**i if chr =~ /[0-9]/
+    @hex.reverse.chars.each_with_index.inject(0) do |res, (chr, i)|
+      res +
+        if RULES[chr]
+          RULES[chr] * 16**i
+        elsif chr =~ /[0-9]/
+          chr.to_i * 16**i
+        end
     end
-    res
   end
 end
