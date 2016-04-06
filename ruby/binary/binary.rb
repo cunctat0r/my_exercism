@@ -7,11 +7,9 @@ class Binary
   end
 
   def to_decimal
-    result = 0
     @input_string.reverse!
-    0.upto(@input_string.length - 1) do |index|
-      result += @input_string[index].to_i * 2**index
+    @input_string.chars.each_with_index.inject(0) do |result, (char, index)|
+      result + char.to_i * 2**index
     end
-    result
   end
 end
