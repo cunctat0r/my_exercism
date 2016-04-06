@@ -6,12 +6,8 @@ class Series
 
   def slices(range)
     raise ArgumentError if range > @init.length
-    arr = []
-    0.upto(@init.length - 1) do |i|
-      slice = []
-      @init[i...i + range].each_char { |c| slice << c.to_i }
-      arr << slice if slice.length == range
+    (0..@init.length - range).to_a.each_with_object([]) do |char, slice|
+      slice << @init[char, range].chars.map(&:to_i)
     end
-    arr
   end
 end
