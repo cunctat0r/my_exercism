@@ -11,9 +11,7 @@ class Luhn
       .reverse
       .collect
       .with_index(1) do |item, index|
-        if index.odd?
-          item
-        else
+        if index.even?
           item *= 2
           item -= 9 if item > 10
         end
