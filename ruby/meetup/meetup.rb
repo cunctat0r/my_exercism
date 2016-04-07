@@ -12,8 +12,8 @@ class Meetup
   def collect(the_day)
     date_begin = Date.new(@year, @month, 1)
     date_end = Date.new(@year, @month, -1)
-    date_begin.upto(date_end).each_with_object([]) do |item, obj|
-      obj << item if item.send((the_day.to_s + '?').to_sym)
+    (date_begin..date_end).select do |date|
+      date.send((the_day.to_s + '?').to_sym)
     end
   end
 
@@ -26,7 +26,7 @@ class Meetup
       last: -1
     }
     if selector == :teenth
-      arr.select { |item| item.day > 12 && item.day < 20 }.last
+      arr.reverse.find { |item| item.day > 12 && item.day < 20 }
     else
       arr[sel_hash[selector]]
     end
